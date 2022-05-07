@@ -7,24 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D7DAE09281985AC005871BA /* windows.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DF616256AAF6400B3FF9A /* windows.xcdatamodeld */; };
+		7D8DF60A256A950600B3FF9A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DF609256A950600B3FF9A /* Constants.swift */; };
+		7D8DF60C256A951A00B3FF9A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DF60B256A951A00B3FF9A /* Extensions.swift */; };
+		7D8DF60E256A953700B3FF9A /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DF60D256A953700B3FF9A /* Observer.swift */; };
+		7D8DF615256AAF1300B3FF9A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DF614256AAF1300B3FF9A /* CoreDataManager.swift */; };
 		7DC65D44256A8AED003325B2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65D43256A8AED003325B2 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7DC65D3E256A8AED003325B2 /* CopyFiles */ = {
+		7D8DF602256A938600B3FF9A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7D8DF5FF256A938600B3FF9A /* ZMAX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZMAX.framework; path = Carthage/Build/Mac/ZMAX.framework; sourceTree = "<group>"; };
+		7D8DF609256A950600B3FF9A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7D8DF60B256A951A00B3FF9A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7D8DF60D256A953700B3FF9A /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		7D8DF610256A9B8000B3FF9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7D8DF614256AAF1300B3FF9A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7D8DF617256AAF6400B3FF9A /* windows.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = windows.xcdatamodel; sourceTree = "<group>"; };
 		7DC65D40256A8AED003325B2 /* windows */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = windows; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC65D43256A8AED003325B2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7DC65D4B256A8B73003325B2 /* windows.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = windows.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,11 +52,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D8DF5F3256A927700B3FF9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DF5FF256A938600B3FF9A /* ZMAX.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D8DF608256A94ED00B3FF9A /* ZMAX */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DF609256A950600B3FF9A /* Constants.swift */,
+				7D8DF60B256A951A00B3FF9A /* Extensions.swift */,
+				7D8DF60D256A953700B3FF9A /* Observer.swift */,
+			);
+			path = ZMAX;
+			sourceTree = "<group>";
+		};
 		7DC65D37256A8AED003325B2 = {
 			isa = PBXGroup;
 			children = (
+				7D8DF616256AAF6400B3FF9A /* windows.xcdatamodeld */,
+				7D8DF610256A9B8000B3FF9A /* Info.plist */,
 				7DC65D42256A8AED003325B2 /* windows */,
 				7DC65D41256A8AED003325B2 /* Products */,
+				7D8DF5F3256A927700B3FF9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +92,10 @@
 		7DC65D42256A8AED003325B2 /* windows */ = {
 			isa = PBXGroup;
 			children = (
+				7DC65D4B256A8B73003325B2 /* windows.entitlements */,
 				7DC65D43256A8AED003325B2 /* main.swift */,
+				7D8DF608256A94ED00B3FF9A /* ZMAX */,
+				7D8DF614256AAF1300B3FF9A /* CoreDataManager.swift */,
 			);
 			path = windows;
 			sourceTree = "<group>";
@@ -71,7 +109,7 @@
 			buildPhases = (
 				7DC65D3C256A8AED003325B2 /* Sources */,
 				7DC65D3D256A8AED003325B2 /* Frameworks */,
-				7DC65D3E256A8AED003325B2 /* CopyFiles */,
+				7D8DF602256A938600B3FF9A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -119,7 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D8DF615256AAF1300B3FF9A /* CoreDataManager.swift in Sources */,
 				7DC65D44256A8AED003325B2 /* main.swift in Sources */,
+				7D8DF60E256A953700B3FF9A /* Observer.swift in Sources */,
+				7D7DAE09281985AC005871BA /* windows.xcdatamodeld in Sources */,
+				7D8DF60C256A951A00B3FF9A /* Extensions.swift in Sources */,
+				7D8DF60A256A950600B3FF9A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +287,20 @@
 		7DC65D48256A8AED003325B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = windows/windows.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 58XAVXVTGV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.vonlojewski.windows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -253,7 +309,20 @@
 		7DC65D49256A8AED003325B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = windows/windows.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 58XAVXVTGV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.vonlojewski.windows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -281,6 +350,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7D8DF616256AAF6400B3FF9A /* windows.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7D8DF617256AAF6400B3FF9A /* windows.xcdatamodel */,
+			);
+			currentVersion = 7D8DF617256AAF6400B3FF9A /* windows.xcdatamodel */;
+			path = windows.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7DC65D38256A8AED003325B2 /* Project object */;
 }
