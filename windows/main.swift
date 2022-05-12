@@ -167,7 +167,7 @@ if args[1] == "apply" {
                 
             }
         } catch let error {
-            print(error.localizedDescription)
+            print("Could not adjust", app.bundleIdentifier!, "properly:", error.localizedDescription)
         }
     }
     exit(0)

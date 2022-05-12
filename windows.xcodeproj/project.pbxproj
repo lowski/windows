@@ -52,6 +52,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D0169E728269B1D00537788 /* PrivateApis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PrivateApis;
+			sourceTree = "<group>";
+		};
 		7D8DF5F3256A927700B3FF9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +101,7 @@
 			children = (
 				7DC65D4B256A8B73003325B2 /* windows.entitlements */,
 				7DC65D43256A8AED003325B2 /* main.swift */,
+				7D0169E728269B1D00537788 /* PrivateApis */,
 				7D8DF608256A94ED00B3FF9A /* ZMAX */,
 				7D8DF614256AAF1300B3FF9A /* CoreDataManager.swift */,
 			);
