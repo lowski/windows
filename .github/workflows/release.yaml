@@ -5,11 +5,12 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: macos-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Build
@@ -21,6 +22,6 @@ jobs:
       - name: Package
         run: tar cf - ./build/Release/windows | gzip > windows_${{ env.RELEASE_VERSION_NUMBER }}_universal.tar.gz
       - name: Create GitHub release
-        uses: softprops/action/gh/release@v1
+        uses: softprops/action-gh-release@v1
         with:
           files: windows_${{ env.RELEASE_VERSION_NUMBER }}_universal.tar.gz
