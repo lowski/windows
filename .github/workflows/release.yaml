@@ -34,3 +34,17 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: ${{ env.FILENAME }}
+      - name: Bump Homebrew
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_PAT }}
+        run: |
+          git config user.name "Release Bot"
+          git config user.email "dev@vonlojewski.me"
+          brew tap lowski/tap
+          brew bump-formula-pr -f --version=${{ env.RELEASE_VERSION_NUMBER }} --no-browse --no-audit --write-only --commit \
+          --sha256=${{ steps.package.outputs.sha }} \
+          --url="https://github.com/lowski/windows/releases/download/${{ env.RELEASE_VERSION }}/${{ env.FILENAME }}" \
+          lowski/tap/windows
+          cd "$(brew --repository lowski/tap)"
+          git remote set-url origin https://lowski:$HOMEBREW_GITHUB_API_TOKEN@github.com/lowski/homebrew-tap.git
+          git push
