@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      - name: Get version tag
+        run: |
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          echo "RELEASE_VERSION_NUMBER=${GITHUB_REF#refs/*/v}" >> $GITHUB_ENV
+      - name: Package
+        run: tar cf - ./build/Release/windows | gzip > windows_${{ env.RELEASE_VERSION_NUMBER }}_universal.tar.gz
+      - name: Create GitHub release
+        uses: softprops/action/gh/release@v1
+        with:
+          files: windows_${{ env.RELEASE_VERSION_NUMBER }}_universal.tar.gz
