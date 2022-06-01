@@ -20,8 +20,17 @@ jobs:
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
           echo "RELEASE_VERSION_NUMBER=${GITHUB_REF#refs/*/v}" >> $GITHUB_ENV
       - name: Package
-        run: tar cf - ./build/Release/windows | gzip > windows_${{ env.RELEASE_VERSION_NUMBER }}_universal.tar.gz
+        id: package
+        run: |
+          EXPORT_DIR=windows_${{ env.RELEASE_VERSION_NUMBER }}_universal
+          FILENAME=$EXPORT_DIR.tar.gz
+          echo "FILENAME=$FILENAME" >> $GITHUB_ENV
+
+          mkdir $EXPORT_DIR
+          cp ./build/Release/windows $EXPORT_DIR/windows
+          tar cf - $EXPORT_DIR/windows | gzip > $FILENAME
+          echo ::set-output name=sha::"$(shasum -a 256 $FILENAME | awk '{printf $1}')"
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
-          files: windows_${{ env.RELEASE_VERSION_NUMBER }}_universal.tar.gz
+          files: ${{ env.FILENAME }}
