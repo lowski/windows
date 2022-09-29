@@ -28,8 +28,8 @@ jobs:
 
           mkdir $EXPORT_DIR
           cp ./build/Release/windows $EXPORT_DIR/windows
-          cp -R ./build/Release/windows.momd $EXPORT_DIR/windows
-          tar cf - $EXPORT_DIR/windows | gzip > $FILENAME
+          cp -R ./build/Release/windows.momd $EXPORT_DIR/windows.momd
+          tar cf - $EXPORT_DIR/* | gzip > $FILENAME
           echo ::set-output name=sha::"$(shasum -a 256 $FILENAME | awk '{printf $1}')"
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
